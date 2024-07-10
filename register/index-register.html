@@ -3,35 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Registrarse</title>
 </head>
 <body>
-<div>
-  <h1>Registrarse</h1>
+<div id="registro-container" class="container-login">
+  <h1>¡Bienvenido!</h1>
+  <p>
+    Queremos que usando Inventario A.B potencies tu negocio y obtengas mejores resultados
+    Para comenzar a usar nuestra herramienta, completa  el formulario de registro
+  </p>
+  <div class="registo__enlace-boton">
   <form method="post">
-    <div>
+    <div class="enlace-boton__registro">
       <label>Usuario</label>
       <input type="text" required placeholder="Usuario">
     </div>
-    <div>
+    <div class="enlace-boton__registro">
+      <label>Nombre</label>
+      <input type="text" required placeholder="Nombre">
+    </div>
+    <div class="enlace-boton__registro">
+      <label>Apellido</label>
+      <input type="text" required placeholder="Apellido">
+    </div>
+    <div class="enlace-boton__registro">
       <label>Contraseña</label>
       <input type="password" required placeholder="Contraseña">
     </div>
-    <div>
-      <label>Nombre</label>
-      <input type="text" required>
-    </div>
-    <div>
-      <label>Apellido</label>
-      <input type="text">
-    </div>
-    <div>
+    <div class="enlace-boton__registro">
       <label for="email">Correo electrónico</label>
-      <input type="text" id="email" pattern=".*@.*" required title="Por favor ingrese un correo válido">
+      <input type="text" id="email" pattern=".*@.*" required title="Por favor ingrese un correo válido" placeholder="Correo electrónico">
     </div>
-    <div>
-      <button>Registrate</button>
-      <a href="./index.html"></a>
+  </div>
+    <div class="register__button">
+      <a href="../index.html">Registrarse</a>
     </div>
   </form>
 </div>
