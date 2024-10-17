@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login">
+    <div class="login__logo">
+        <img src="./public/img/listas-de-control.png" alt="Logo" class="login__logo-image">
+    </div>
+    <form id="login-form" class="login__form">
+        <div class="login__input-group">
+            <label for="usuario" class="login__label">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Usuario" class="login__input" required>
+        </div>
+        <div class="login__input-group">
+            <label for="contrasena" class="login__label">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="login__input" required>
+        </div>
+        <div class="login__actions">
+            <button type="submit" class="login__btn">Iniciar sesión</button>
+        </div>
+        <div class="login__forgot">
+            <a href="./forget password/forget-password.html" class="login__forgot-link">¿Olvidaste tu contraseña?</a>
+        </div>
+        <div class="login__actions">
+            <a href="./register/index-register.html" class="login__btn login__btn--register">Registrarse</a>
+        </div>
+    </form>
+</div>
+<script type="module" src="js/app.js"></script> <!-- Incluye tu archivo JavaScript -->
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Bloque principal: registro */
+.registro {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+/* Elemento: título */
+.registro__titulo {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Elemento: descripción */
+.registro__descripcion {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Bloque: formulario */
+.registro__formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Elemento: grupo de entrada */
+.registro__grupo-entrada {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Elemento: etiqueta */
+.registro__etiqueta {
+    font-weight: bold;
+}
+
+/* Elemento: entrada (input) */
+.registro__entrada {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Elemento: acciones (botón) */
+.registro__acciones {
+    display: flex;
+    justify-content: center;
+}
+
+/* Elemento: botón con color morado */
+.registro__boton {
+    padding: 0.75rem 2rem;
+    background-color: #8e44ad; 
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para el botón */
+.registro__boton:hover {
+    background-color: #7d3c98;
+}

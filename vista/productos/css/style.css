@@ -1,0 +1,81 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Bloque principal: formulario */
+.formulario {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Título */
+.formulario__titulo {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Bloque de formulario */
+.formulario__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+/* Grupo de entradas */
+.formulario__grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Etiquetas */
+.formulario__label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Campos de entrada y select */
+.formulario__input, 
+.formulario__select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;  /* Asegura que el padding se incluya en el tamaño total */
+}
+
+/* Botón */
+.formulario__boton {
+    padding: 0.75rem;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.formulario__boton:hover {
+    background-color: #7d3c98;
+}
