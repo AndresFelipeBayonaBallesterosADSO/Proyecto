@@ -1,5 +1,19 @@
 {
-    "users": [
-        
-    ]
+  "users": [
+    {
+      "id": "fe85",
+      "usuario": "andresito",
+      "nombre": "Andres",
+      "apellidos": "Bayona",
+      "contrasena": "12345",
+      "email": "andresbayona408@gmail.com"
+    }
+  ],
+  "productos": [],
+  "categorias": [
+    {
+      "id": "f18a",
+      "nombre_categoria": "Verduras"
+    }
+  ]
 }

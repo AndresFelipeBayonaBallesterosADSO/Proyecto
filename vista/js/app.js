@@ -1,3 +1,4 @@
+import is_valid from "./isValid.js"
 import ValidarCorreo from "./ValidarCorreo.js";
 import SoloNumeros from "./SoloNumeros.js";
 import SoloLetras from "./SoloLetras.js";
