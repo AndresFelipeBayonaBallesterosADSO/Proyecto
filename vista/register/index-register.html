@@ -18,33 +18,34 @@
     <form method="post" class="registro__formulario">
       <div class="registro__grupo-entrada">
         <label for="usuario" class="registro__etiqueta">Usuario</label>
-        <input type="text" id="usuario" class="registro__entrada" placeholder="Usuario">
+        <input type="text" id="usuario" class="registro__entrada" placeholder="Usuario" required>
       </div>
       <div class="registro__grupo-entrada">
         <label for="nombre" class="registro__etiqueta">Nombre</label>
-        <input type="text" id="nombre" class="registro__entrada" placeholder="Nombre">
+        <input type="text" id="nombre" class="registro__entrada" placeholder="Nombre" required>
       </div>
       <div class="registro__grupo-entrada">
         <label for="apellido" class="registro__etiqueta">Apellido</label>
-        <input type="text" id="apellido" class="registro__entrada" placeholder="Apellido">
+        <input type="text" id="apellido" class="registro__entrada" placeholder="Apellido" required>
       </div>
       <div class="registro__grupo-entrada">
         <label for="contrasena" class="registro__etiqueta">Contraseña</label>
-        <input type="password" id="contrasena" class="registro__entrada" placeholder="Contraseña">
+        <input type="password" id="contrasena" class="registro__entrada" placeholder="Contraseña" required>
       </div>
       <div class="registro__grupo-entrada">
         <label for="confirmar-contrasena" class="registro__etiqueta">Vuelva a digitar su contraseña</label>
-        <input type="password" id="confirmar-contrasena" class="registro__entrada" placeholder="Confirmar contraseña">
+        <input type="password" id="confirmar-contrasena" class="registro__entrada" placeholder="Confirmar contraseña" required>
       </div>
       <div class="registro__grupo-entrada">
         <label for="email" class="registro__etiqueta">Correo electrónico</label>
-        <input type="email" id="email" class="registro__entrada" placeholder="Correo electrónico">
+        <input type="email" id="email" class="registro__entrada" placeholder="Correo electrónico" required>
       </div>
       <div class="registro__acciones">
-        <a href="../index.html" class="registro__boton">Registrarse</a>
+        <button type="submit" class="registro__boton">Registrarse</button>
       </div>
     </form>
   </div>
+  <script type="module" src="../js/app.js"></script>
 </body>
 
 </html>
