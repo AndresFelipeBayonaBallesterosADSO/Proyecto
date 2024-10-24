@@ -1,4 +1,5 @@
 import is_valid from "./isValid.js"; 
+import SoloLetras from "./SoloLetras.js"; 
 import remover from "./remover.js";
 import { URL } from "./config.js";
 
@@ -61,4 +62,7 @@ $formulario.addEventListener("submit", save);
 document.addEventListener("DOMContentLoaded", () => {
     // Añadir validaciones de teclas
     categoria.addEventListener("keyup", (event) => remover(event, categoria));
+
+    // Restringir entrada a solo letras en el campo de categoría
+    categoria.addEventListener("keypress", (event) => SoloLetras(event, categoria));
 });

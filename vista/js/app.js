@@ -1,7 +1,7 @@
-import is_valid from "./isValid.js"
+import is_valid from "./isValid.js";
 import ValidarCorreo from "./ValidarCorreo.js";
-import SoloNumeros from "./SoloNumeros.js";
-import SoloLetras from "./SoloLetras.js";
+import SoloNumeros from "./SoloNumeros.js";  
+import SoloLetras from "./SoloLetras.js"; 
 import remover from "./remover.js";
 import { URL } from "./config.js";
 
@@ -82,6 +82,18 @@ document.addEventListener("DOMContentLoaded", () => {
     email.addEventListener("keyup", (event) => remover(event, email));
 
     // Restricciones de entrada de teclado
+    usuario.addEventListener("keypress", (event) => {
+        const key = event.key;
+        const regex = /^[a-zA-Z0-9]+$/;  // Solo letras y números para usuario
+        if (!regex.test(key)) {
+            event.preventDefault();
+        }
+    });
+
+    // Validaciones para que solo permitan números
+    contrasena.addEventListener("keypress", (event) => SoloNumeros(event, contrasena));  // Solo números en contraseña
+    confirmarContrasena.addEventListener("keypress", (event) => SoloNumeros(event, confirmarContrasena));  // Solo números en confirmar contraseña
+
     nombre.addEventListener("keypress", (event) => SoloLetras(event, nombre));
     apellido.addEventListener("keypress", (event) => SoloLetras(event, apellido));
     email.addEventListener("blur", (event) => ValidarCorreo(event, email));
