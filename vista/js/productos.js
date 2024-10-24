@@ -6,6 +6,36 @@ const precio = document.querySelector("#precio");
 const cantidad = document.querySelector("#cantidad");
 const categoria = document.querySelector("#categoria");
 
+// Función para cargar las categorías
+const cargarCategorias = async () => {
+    try {
+        const response = await fetch(`${URL}/categorias`);
+        if (!response.ok) {
+            throw new Error('Error al cargar las categorías');
+        }
+        const categorias = await response.json();
+        console.log("Categorías cargadas:", categorias); // Verifica las categorías cargadas
+
+        // Limpiar las categorías existentes antes de añadir nuevas
+        categoria.innerHTML = ""; // Limpia el contenido existente
+
+        const defaultOption = document.createElement('option');
+        defaultOption.textContent = "Seleccionar Categoría:";
+        defaultOption.value = ""; 
+        categoria.appendChild(defaultOption);
+
+        categorias.forEach(cat => {
+            const option = document.createElement('option');
+            option.value = cat.id; 
+            option.textContent = cat.nombre_categoria;
+            categoria.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error al cargar las categorías:", error);
+        alert("Hubo un problema al cargar las categorías.");
+    }
+};
+
 // Función para guardar el producto
 const guardarProducto = (data) => {
     fetch(`${URL}/productos`, {
@@ -89,43 +119,6 @@ const save = (event) => {
 
 // Agregar el evento al formulario
 $formulario.addEventListener("submit", save);
-
-// Función para cargar las categorías
-const cargarCategorias = async () => {
-    try {
-        const response = await fetch(`${URL}/categorias`);
-        if (!response.ok) {
-            throw new Error('Error al cargar las categorías');
-        }
-        const categorias = await response.json();
-
-        console.log(categorias); // Verificar la estructura de los datos
-
-        // Verifica si el arreglo está vacío
-        if (!categorias.length) {
-            alert("No hay categorías disponibles.");
-            return;
-        }
-
-        // Añadir la opción predeterminada
-        const defaultOption = document.createElement('option');
-        defaultOption.textContent = "Seleccionar Categoría:";
-        defaultOption.value = ""; 
-        categoria.appendChild(defaultOption);
-
-        // Añadir las opciones de las categorías
-        categorias.forEach(cat => {
-            console.log(cat); // Ver los datos de cada categoría
-            const option = document.createElement('option');
-            option.value = cat.id; // Asegúrate de que este sea el ID correcto
-            option.textContent = cat.nombre; // Asegúrate de que esta sea la propiedad correcta
-            categoria.appendChild(option);
-        });
-    } catch (error) {
-        console.error("Error al cargar las categorías:", error);
-        alert("Hubo un problema al cargar las categorías.");
-    }
-};
 
 // Cargar las categorías al cargar el documento
 document.addEventListener("DOMContentLoaded", cargarCategorias);

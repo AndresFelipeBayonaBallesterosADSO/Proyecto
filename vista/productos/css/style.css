@@ -79,3 +79,11 @@ body {
 .formulario__boton:hover {
     background-color: #7d3c98;
 }
+
+.correcto{
+    border: 1px solid green;
+}
+
+.error{
+    border: 1px solid red;
+}

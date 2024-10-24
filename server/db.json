@@ -9,7 +9,15 @@
       "email": "andresbayona408@gmail.com"
     }
   ],
-  "productos": [],
+  "productos": [
+    {
+      "id": "61a2",
+      "nombre": "Melocotón",
+      "precio": 3000,
+      "cantidad": 4,
+      "categoria": "3b83"
+    }
+  ],
   "categorias": [
     {
       "id": "f18a",

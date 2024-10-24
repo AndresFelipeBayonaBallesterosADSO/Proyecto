@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Productos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="productos">
+        <table class="productos__table">
+            <thead class="productos__thead">
+                <tr>
+                    <th class="productos__header">Nombre</th>
+                    <th class="productos__header">Precio</th>
+                    <th class="productos__header">Cantidad</th>
+                    <th class="productos__header">Categoría</th>
+                    <th class="productos__header">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="productos__tbody"></tbody>
+        </table>
+
+        <template class="productos__template">
+            <tr class="productos__row">
+                <td class="productos__data productos__data--nombre"></td>
+                <td class="productos__data productos__data--precio"></td>
+                <td class="productos__data productos__data--cantidad"></td>
+                <td class="productos__data productos__data--categoria"></td>
+                <td class="productos__acciones">
+                    <button class="productos__btn productos__btn--modificar">Modificar</button>
+                    <button class="productos__btn productos__btn--eliminar">Eliminar</button>
+                </td>
+            </tr>
+        </template>
+
+        <div class="pagination">
+            <button id="prevPage">Anterior</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">Siguiente</button>
+        </div>
+    </div>
+    <script type="module" src="../js/listarProductos.js"></script>
+</body>
+</html>
