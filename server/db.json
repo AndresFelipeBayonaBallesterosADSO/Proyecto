@@ -11,17 +11,21 @@
   ],
   "productos": [
     {
-      "id": "61a2",
       "nombre": "Melocotón",
-      "precio": 3000,
-      "cantidad": 4,
-      "categoria": "3b83"
+      "precio": "3000",
+      "cantidad": "4",
+      "categoria": "a4b0",
+      "id": "61a2"
     }
   ],
   "categorias": [
     {
       "nombre_categoria": "Verduras",
       "id": "f18a"
+    },
+    {
+      "nombre_categoria": "Bebidas",
+      "id": "a4b0"
     }
   ]
 }
