@@ -14,10 +14,9 @@ const cargarCategorias = async () => {
             throw new Error('Error al cargar las categorías');
         }
         const categorias = await response.json();
-        console.log("Categorías cargadas:", categorias); // Verifica las categorías cargadas
+        console.log("Categorías cargadas:", categorias);
 
-        // Limpiar las categorías existentes antes de añadir nuevas
-        categoria.innerHTML = ""; // Limpia el contenido existente
+        categoria.innerHTML = ""; // Limpiar contenido existente
 
         const defaultOption = document.createElement('option');
         defaultOption.textContent = "Seleccionar Categoría:";
@@ -37,28 +36,26 @@ const cargarCategorias = async () => {
 };
 
 // Función para guardar el producto
-const guardarProducto = (data) => {
-    fetch(`${URL}/productos`, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-        },
-    })
-    .then((response) => {
+const guardarProducto = async (data) => {
+    try {
+        const response = await fetch(`${URL}/productos`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+        });
+
         if (!response.ok) {
             throw new Error('Error en la respuesta de la API');
         }
-        return response.json();
-    })
-    .then(() => {
+        await response.json();
         limpiarForm();
         alert("Producto agregado exitosamente");
-    })
-    .catch((error) => {
+    } catch (error) {
         console.error("Error:", error);
         alert("No se pudo completar la adición del producto.");
-    });
+    }
 };
 
 // Función para limpiar el formulario

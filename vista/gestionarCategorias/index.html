@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestionar Categorías</title>
+    <link rel="stylesheet" href="../gestionarCategorias/css/style.css">
 </head>
 <body>
-    
+    <div class="categorias">
+        <h1>Gestionar Categorías</h1>
+        <table class="categorias__table">
+            <thead class="categorias__thead">
+                <tr>
+                    <th class="categorias__header">Nombre Categoría</th>
+                    <th class="categorias__header">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="categorias__tbody"></tbody>
+        </table>
+
+        <template class="categorias__template">
+            <tr class="categorias__row">
+                <td class="categorias__data categorias__data--nombre"></td>
+                <td class="categorias__acciones">
+                    <button class="categorias__btn categorias__btn--modificar">Modificar</button>
+                    <button class="categorias__btn categorias__btn--eliminar">Eliminar</button>
+                </td>
+            </tr>
+        </template>
+
+        <div class="pagination">
+            <button id="prevPage">Anterior</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">Siguiente</button>
+        </div>
+    </div>
+
+    <script type="module" src="../js/listarCategorias.js"></script>
 </body>
 </html>
