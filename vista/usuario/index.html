@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="usuario">
+        <h1>Información del Usuario</h1>
+        <div class="usuario__info">
+            <input type="hidden" class="usuario__id" value=""> <!-- ID oculto -->
+            <p>
+                <strong>Usuario:</strong>
+                <input type="text" class="usuario__data usuario__data--usuario" placeholder="Usuario" readonly>
+            </p>
+            <p>
+                <strong>Nombre:</strong>
+                <input type="text" class="usuario__data usuario__data--nombre" placeholder="Nombre">
+            </p>
+            <p>
+                <strong>Apellidos:</strong>
+                <input type="text" class="usuario__data usuario__data--apellidos" placeholder="Apellidos">
+            </p>
+            <p>
+                <strong>Contraseña:</strong>
+                <input type="password" class="usuario__data usuario__data--contrasena" placeholder="Contraseña">
+            </p>
+            <p>
+                <strong>Email:</strong>
+                <input type="email" class="usuario__data usuario__data--email" placeholder="Email">
+            </p>
+        </div>
+        <button class="usuario__btn guardar">Guardar Cambios</button>
+    </div>
+    <script type="module" src="../js/listarUsuario.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="formulario">
+    <h1 class="formulario__titulo">Crear Factura</h1>
+    <form class="formulario__form" id="facturaForm">
+        <div class="formulario__grupo">
+            <label for="producto" class="formulario__label">Producto</label>
+            <select id="producto" class="formulario__select">
+                <option value="">Seleccione un producto</option>
+                <!-- Las opciones se cargarán desde la base de datos -->
+            </select>
+        </div>
+        <div class="formulario__grupo">
+            <label for="cantidad" class="formulario__label">Cantidad</label>
+            <input type="number" id="cantidad" class="formulario__input" min="1" value="1">
+        </div>
+        <button type="button" class="formulario__boton" id="agregarProducto">Agregar Producto</button>
+    </form>
+
+    <h2>Productos Agregados</h2>
+    <ul id="listaProductos">
+        <!-- Aquí se mostrarán los productos agregados con el botón de eliminar -->
+    </ul>
+    
+    <div class="formulario__grupo">
+        <label for="total" class="formulario__label">Total</label>
+        <input type="text" id="total" class="formulario__input" readonly>
+    </div>
+    <button type="button" class="formulario__boton" id="guardarFactura">Generar Factura</button>
+</div>
+
+<script type="module" src="../js/factura.js"></script>
+
+</body>
+</html>

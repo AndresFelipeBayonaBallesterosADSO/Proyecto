@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Facturas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="facturas">
+        <table class="facturas__table">
+            <thead class="facturas__thead">
+                <tr>
+                    <th class="facturas__header">ID Factura</th>
+                    <th class="facturas__header">Productos</th>
+                    <th class="facturas__header">Total</th>
+                    <th class="facturas__header">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="facturas__tbody"></tbody>
+        </table>
+
+        <template class="facturas__template">
+            <tr class="facturas__row">
+                <td class="facturas__data facturas__data--id"></td>
+                <td class="facturas__data facturas__data--productos"></td>
+                <td class="facturas__data facturas__data--total"></td>
+                <td class="facturas__acciones">
+                    <button class="facturas__btn facturas__btn--eliminar">Eliminar</button>
+                </td>
+            </tr>
+        </template>
+
+        <div class="pagination">
+            <button id="prevPage">Anterior</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">Siguiente</button>
+        </div>
+    </div>
+    <script type="module" src="../js/listarFacturas.js"></script>
+</body>
+</html>
