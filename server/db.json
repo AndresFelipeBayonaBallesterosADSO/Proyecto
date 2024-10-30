@@ -1,31 +1,15 @@
 {
   "users": [
     {
-      "id": "fe85",
       "usuario": "andresito",
       "nombre": "Andres",
       "apellidos": "Bayona",
-      "contrasena": "12345",
-      "email": "andresbayona408@gmail.com"
+      "email": "andresbayona408@gmail.com",
+      "contrasena": "12345678",
+      "id": "6653"
     }
   ],
-  "productos": [
-    {
-      "nombre": "Melocotón",
-      "precio": "3000",
-      "cantidad": "4",
-      "categoria": "a4b0",
-      "id": "61a2"
-    }
-  ],
-  "categorias": [
-    {
-      "nombre_categoria": "Verduras",
-      "id": "f18a"
-    },
-    {
-      "nombre_categoria": "Bebidas",
-      "id": "a4b0"
-    }
-  ]
+  "productos": [],
+  "categorias": [],
+  "facturas": []
 }
