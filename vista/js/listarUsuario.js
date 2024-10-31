@@ -1,8 +1,18 @@
-import { URL } from "./config.js"; // Importa la URL base para la API desde un archivo de configuración
+import { URL } from "./config.js"; // Importa la URL base para la API
 
-document.addEventListener('DOMContentLoaded', () => { // Espera a que el contenido del DOM esté completamente cargado
-    // Obtén el ID del usuario del localStorage o establece un ID predeterminado
-    const usuarioId = localStorage.getItem('usuarioId') || "6653"; // Cambia esto a un ID válido si no hay en localStorage
+// Espera a que el contenido del DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', () => { 
+    // Obtén el ID del usuario del localStorage
+    const usuarioId = localStorage.getItem('usuarioId'); 
+
+    // Verifica si hay un usuario autenticado
+    if (!usuarioId) {
+        alert("No hay un usuario autenticado. Por favor inicie sesión."); // Muestra un mensaje de alerta
+        window.location.href = '../index.html'; // Redirige a la página de inicio de sesión
+        return; // Termina la ejecución si no hay un usuario autenticado
+    }
+
+    // Objeto que contiene los elementos del DOM donde se mostrarán los datos del usuario
     const dataElements = {
         id: document.querySelector('.usuario__id'), // Elemento que contiene el ID del usuario
         usuario: document.querySelector('.usuario__data--usuario'), // Elemento para el nombre de usuario
@@ -17,10 +27,12 @@ document.addEventListener('DOMContentLoaded', () => { // Espera a que el conteni
 
     // Función para cargar los datos del usuario
     function cargarUsuario() {
-        fetch(`${URL}/users/${usuarioId}`) // Petición para obtener los datos del usuario por su ID
+        // Petición para obtener los datos del usuario por su ID
+        fetch(`${URL}/users/${usuarioId}`) 
             .then(response => {
-                if (!response.ok) { // Comprobamos si la respuesta es correcta
-                    throw new Error('Error en la carga del usuario'); // Lanza un error si la respuesta no es correcta
+                // Verifica si la respuesta es exitosa
+                if (!response.ok) {
+                    throw new Error('Error en la carga del usuario'); // Lanza un error si la carga falla
                 }
                 return response.json(); // Convierte la respuesta a JSON
             })
@@ -32,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => { // Espera a que el conteni
                 dataElements.email.value = data.email; // Asignamos el email
                 dataElements.contrasena.value = data.contrasena; // Carga la contraseña si es necesario
             })
-            .catch(error => { // Manejo de errores
+            .catch(error => {
                 console.error('Error al cargar los datos del usuario:', error); // Muestra el error en la consola
                 alert('No se pudo cargar el usuario. Verifique el ID.'); // Mensaje de alerta para el usuario
             });
@@ -40,24 +52,27 @@ document.addEventListener('DOMContentLoaded', () => { // Espera a que el conteni
 
     // Función para guardar los cambios
     function guardarCambios() {
+        // Objeto con los datos del usuario modificado
         const usuarioModificado = {
-            usuario: dataElements.usuario.value, // Recoge el nombre de usuario modificado
-            nombre: dataElements.nombre.value, // Recoge el nombre modificado
-            apellidos: dataElements.apellidos.value, // Recoge los apellidos modificados
-            email: dataElements.email.value, // Recoge el email modificado
-            contrasena: dataElements.contrasena.value, // Recoge la contraseña modificada
+            usuario: dataElements.usuario.value, // Nombre de usuario modificado
+            nombre: dataElements.nombre.value, // Nombre modificado
+            apellidos: dataElements.apellidos.value, // Apellidos modificados
+            email: dataElements.email.value, // Email modificado
+            contrasena: dataElements.contrasena.value, // Contraseña modificada
         };
 
+        // Petición para actualizar los datos del usuario
         fetch(`${URL}/users/${usuarioId}`, {
-            method: 'PUT', // Usamos PUT para actualizar los datos del usuario
+            method: 'PUT', // Método HTTP para actualizar
             headers: {
-                'Content-Type': 'application/json', // Especificamos que el contenido es JSON
+                'Content-Type': 'application/json', // Indica el tipo de contenido
             },
-            body: JSON.stringify(usuarioModificado), // Convertimos el objeto a JSON
+            body: JSON.stringify(usuarioModificado), // Convierte el objeto a JSON para enviar
         })
         .then(response => {
-            if (!response.ok) { // Comprobamos si la respuesta es correcta
-                throw new Error('Error al guardar los cambios'); // Lanza un error si la respuesta no es correcta
+            // Verifica si la respuesta es exitosa
+            if (!response.ok) {
+                throw new Error('Error al guardar los cambios'); // Lanza un error si la guardado falla
             }
             return response.json(); // Convierte la respuesta a JSON
         })
@@ -67,12 +82,14 @@ document.addEventListener('DOMContentLoaded', () => { // Espera a que el conteni
         })
         .catch(error => {
             console.error('Error al guardar los cambios:', error); // Muestra el error en la consola
+            alert('No se pudo guardar los cambios.'); // Mensaje de alerta para el usuario
         });
     }
 
     // Evento para el botón de guardar cambios
-    const guardarBtn = document.querySelector('.usuario__btn.guardar'); // Seleccionamos el botón de guardar
-    guardarBtn.addEventListener('click', guardarCambios); // Agregamos un evento de clic al botón que llama a guardarCambios
+    const guardarBtn = document.querySelector('.guardar'); // Selecciona el botón de guardar
+    // Agregamos un evento de clic al botón que llama a guardarCambios
+    guardarBtn.addEventListener('click', guardarCambios); 
 
     // Llamamos a la función para cargar los datos del usuario al cargar la página
     cargarUsuario(); // Cargar los datos del usuario al inicio

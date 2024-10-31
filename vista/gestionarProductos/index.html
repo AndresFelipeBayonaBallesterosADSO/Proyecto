@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionar Productos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <div class="productos">
+        <h1 class="productos__titulo">Gestionar Productos</h1>
         <table class="productos__table">
             <thead class="productos__thead">
                 <tr>
@@ -37,9 +36,17 @@
         </template>
 
         <div class="pagination">
-            <button id="prevPage">Anterior</button>
+            <button id="prevPage" class="productos__btn productos__btn--first">Anterior</button>
             <span id="pageNumber">1</span>
-            <button id="nextPage">Siguiente</button>
+            <button id="nextPage" class="productos__btn productos__btn--last">Siguiente</button>
+        </div>
+
+        <div class="formulario__grupo">
+            <a href="../productos/index.html" class="productos__btn menu-boton">Nuevo Producto</a>
+        </div>
+
+        <div class="formulario__grupo">
+            <a href="../primeravista/index.html" class="productos__btn menu-boton">Ir al Menú</a>
         </div>
     </div>
     <script type="module" src="../js/listarProductos.js"></script>

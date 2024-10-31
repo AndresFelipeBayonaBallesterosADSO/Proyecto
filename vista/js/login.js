@@ -7,11 +7,12 @@ import { URL } from "./config.js"; // Importa la URL desde el archivo de configu
 document.querySelector('form').addEventListener('submit', async function (e) {
     e.preventDefault(); // Previene el comportamiento por defecto del formulario
 
-    const usuario = document.getElementById('usuario'); // Obtiene el elemento de entrada del usuario
-    const contrasena = document.getElementById('contrasena'); // Obtiene el elemento de entrada de la contraseña
+    // Obtiene el elemento de entrada del usuario y de la contraseña
+    const usuario = document.getElementById('usuario'); 
+    const contrasena = document.getElementById('contrasena'); 
 
     // Validar que los campos estén completos
-    const camposValidos = is_valid(e, "form[required]"); // Llama a la función de validación
+    const camposValidos = is_valid(e, "form[required]"); // Llama a la función de validación que verifica si los campos requeridos están completos
     
     if (!camposValidos) {
         alert("Por favor completa todos los campos."); // Alerta si hay campos vacíos
@@ -28,6 +29,10 @@ document.querySelector('form').addEventListener('submit', async function (e) {
 
         if (usuarioEncontrado) {
             alert('Inicio de sesión exitoso.'); // Alerta de éxito si se encuentra el usuario
+            
+            // Guarda el ID del usuario en localStorage
+            localStorage.setItem('usuarioId', usuarioEncontrado.id); // Asegúrate de que "id" es el campo correcto
+            
             window.location.href = '../primeravista/index.html'; // Redirige al aplicativo
         } else {
             alert('Usuario o contraseña incorrectos.'); // Alerta de error si el usuario no se encuentra
@@ -39,8 +44,9 @@ document.querySelector('form').addEventListener('submit', async function (e) {
 
 // Validación al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
-    const usuario = document.getElementById('usuario'); // Obtiene el elemento de entrada del usuario
-    const contrasena = document.getElementById('contrasena'); // Obtiene el elemento de entrada de la contraseña
+    // Obtiene el elemento de entrada del usuario y de la contraseña
+    const usuario = document.getElementById('usuario'); 
+    const contrasena = document.getElementById('contrasena'); 
 
     // Restringir entrada a solo números en la contraseña
     contrasena.addEventListener("keypress", (event) => SoloNumeros(event, contrasena)); // Llama a la función SoloNumeros al presionar una tecla

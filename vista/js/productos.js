@@ -1,31 +1,40 @@
 import { URL } from "./config.js"; // Importa la URL desde el archivo de configuración
 
-const $formulario = document.querySelector('#form-producto'); // Selecciona el formulario para productos
-const nombreProducto = document.querySelector("#nombre"); // Selecciona el campo de nombre del producto
-const precio = document.querySelector("#precio"); // Selecciona el campo de precio
-const cantidad = document.querySelector("#cantidad"); // Selecciona el campo de cantidad
-const categoria = document.querySelector("#categoria"); // Selecciona el campo de categoría
+// Selecciona el formulario para productos
+const $formulario = document.querySelector('#form-producto'); 
+// Selecciona el campo de nombre del producto
+const nombreProducto = document.querySelector("#nombre"); 
+// Selecciona el campo de precio
+const precio = document.querySelector("#precio"); 
+// Selecciona el campo de cantidad
+const cantidad = document.querySelector("#cantidad"); 
+// Selecciona el campo de categoría
+const categoria = document.querySelector("#categoria"); 
 
 // Función para cargar las categorías
 const cargarCategorias = async () => {
     try {
-        const response = await fetch(`${URL}/categorias`); // Realiza una petición GET a la API para obtener las categorías
+        // Realiza una petición GET a la API para obtener las categorías
+        const response = await fetch(`${URL}/categorias`); 
         if (!response.ok) {
             throw new Error('Error al cargar las categorías'); // Lanza un error si la respuesta no es OK
         }
-        const categorias = await response.json(); // Convierte la respuesta a formato JSON
+        // Convierte la respuesta a formato JSON
+        const categorias = await response.json(); 
         console.log("Categorías cargadas:", categorias); // Muestra las categorías en la consola
 
         categoria.innerHTML = ""; // Limpiar contenido existente
 
-        const defaultOption = document.createElement('option'); // Crea una opción por defecto
+        // Crea una opción por defecto
+        const defaultOption = document.createElement('option'); 
         defaultOption.textContent = "Seleccionar Categoría:"; // Texto de la opción por defecto
         defaultOption.value = ""; // Valor de la opción por defecto
         categoria.appendChild(defaultOption); // Añade la opción por defecto al select
 
         // Recorre las categorías y las añade al select
         categorias.forEach(cat => {
-            const option = document.createElement('option'); // Crea una nueva opción para cada categoría
+            // Crea una nueva opción para cada categoría
+            const option = document.createElement('option'); 
             option.value = cat.id; // Asigna el ID de la categoría como valor
             option.textContent = cat.nombre_categoria; // Asigna el nombre de la categoría como texto
             categoria.appendChild(option); // Añade la opción al select
@@ -53,6 +62,9 @@ const guardarProducto = async (data) => {
         await response.json(); // Convierte la respuesta a formato JSON
         limpiarForm(); // Limpia el formulario después de agregar el producto
         alert("Producto agregado exitosamente"); // Muestra una alerta de éxito
+        
+        // Redirigir a la página de gestionar productos
+        window.location.href = '../gestionarProductos/index.html'; // Redirige a la página de gestión de productos
     } catch (error) {
         console.error("Error:", error); // Muestra el error en la consola
         alert("No se pudo completar la adición del producto."); // Muestra una alerta de error
@@ -69,9 +81,12 @@ const limpiarForm = () => {
 
 // Validación de campos
 const validarFormulario = () => {
-    const nombre = nombreProducto.value.trim(); // Elimina espacios en blanco del nombre
-    const precioValue = parseFloat(precio.value); // Convierte el valor del precio a un número
-    const cantidadValue = parseInt(cantidad.value); // Convierte el valor de la cantidad a un número entero
+    // Elimina espacios en blanco del nombre
+    const nombre = nombreProducto.value.trim(); 
+    // Convierte el valor del precio a un número
+    const precioValue = parseFloat(precio.value); 
+    // Convierte el valor de la cantidad a un número entero
+    const cantidadValue = parseInt(cantidad.value); 
 
     // Validaciones
     if (nombre === "") {

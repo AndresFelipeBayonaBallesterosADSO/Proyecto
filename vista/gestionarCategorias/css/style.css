@@ -19,6 +19,32 @@ body {
     margin: auto;
 }
 
+/* Enlace que se comporta como botón */
+.formulario__grupo {
+    margin: 2rem 0 1rem; /* Espacio superior aumentado, margen inferior mantenido */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    display: flex; /* Permite alinear el botón */
+    justify-content: center; /* Centra el botón horizontalmente */
+}
+
+.formulario__boton {
+    padding: 0.75rem;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Elimina la línea debajo del texto */
+    width: auto; /* Ajusta el ancho al contenido */
+}
+
+.formulario__boton:hover {
+    background-color: #7d3c98;
+}
+
 /* Tabla de categorías */
 .categorias__table {
     width: 100%;
@@ -40,8 +66,10 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Estilo de filas como lista */
 .categorias__row {
     transition: background-color 0.3s;
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
 }
 
 .categorias__row:hover {
@@ -50,13 +78,16 @@ body {
 
 .categorias__data {
     padding: 1rem;
-    border-bottom: 1px solid #ddd;
 }
 
 /* Estilo para las acciones */
 .categorias__acciones {
-    display: flex;
-    gap: 0.5rem;
+    display: flex; /* Mantiene los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Centra los botones verticalmente */
+    gap: 1.5rem; /* Espacio entre los botones */
+    margin-top: 2rem; /* Añade separación superior entre la tabla y las acciones */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
 }
 
 /* Botones */
@@ -68,6 +99,8 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100px; /* Establece un ancho fijo para los botones */
+    text-align: center; /* Asegura que el texto esté centrado en el botón */
 }
 
 .categorias__btn:hover {

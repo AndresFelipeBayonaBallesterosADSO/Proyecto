@@ -86,3 +86,15 @@ body {
 .registro__boton:hover {
     background-color: #7d3c98;
 }
+
+/* Estilo para el enlace de inicio de sesión */
+.registro__link a {
+    color: #8e44ad; /* Color del texto del enlace */
+    text-decoration: none; /* Quitar subrayado */
+    font-weight: bold; /* Resaltar el texto */
+}
+
+/* Hover para el enlace de inicio de sesión */
+.registro__link a:hover {
+    text-decoration: underline; /* Agregar subrayado en hover */
+}

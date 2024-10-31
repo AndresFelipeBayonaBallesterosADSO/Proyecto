@@ -1,7 +1,7 @@
 // Importamos la URL base desde el archivo de configuración
 import { URL } from "./config.js";
 
-// Esperamos a que el contenido del documento se haya cargado
+// Esperamos a que el contenido del documento se haya cargado completamente
 document.addEventListener('DOMContentLoaded', () => {
     // Seleccionamos el cuerpo de la tabla donde se mostrarán las facturas
     const tablaFacturas = document.querySelector('.facturas__tbody'); 
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rowsPerPage = 15; // Número de filas por página
 
     // Inicializamos arrays para guardar las facturas y productos
-    let facturas = [];
-    let productos = [];
+    let facturas = []; // Array para almacenar las facturas
+    let productos = []; // Array para almacenar los productos
 
     // Función para cargar las facturas y productos desde la API
     function cargarFacturas() {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error al cargar los datos:', error); // Mostramos un error en la consola si falla la carga
-            alert('Hubo un problema al cargar las facturas'); // Alertamos al usuario
+            alert('Hubo un problema al cargar las facturas'); // Alertamos al usuario sobre el problema
         });
     }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('¿Estás seguro de que quieres eliminar esta factura?')) {
             // Hacemos una petición DELETE a la API para eliminar la factura
             fetch(`${URL}/facturas/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE' // Método de la petición: DELETE
             })
             .then(response => {
                 // Verificamos si la respuesta fue exitosa
@@ -146,5 +146,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Llamamos a la función para cargar las facturas cuando la página se carga
-    cargarFacturas(); 
+    cargarFacturas(); // Iniciamos la carga de facturas al cargar la página
 });

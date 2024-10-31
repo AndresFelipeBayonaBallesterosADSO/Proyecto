@@ -1,38 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
+    <title>Información del Usuario</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="usuario">
-        <h1>Información del Usuario</h1>
-        <div class="usuario__info">
-            <input type="hidden" class="usuario__id" value=""> <!-- ID oculto -->
-            <p>
-                <strong>Usuario:</strong>
-                <input type="text" class="usuario__data usuario__data--usuario" placeholder="Usuario" readonly>
-            </p>
-            <p>
-                <strong>Nombre:</strong>
-                <input type="text" class="usuario__data usuario__data--nombre" placeholder="Nombre">
-            </p>
-            <p>
-                <strong>Apellidos:</strong>
-                <input type="text" class="usuario__data usuario__data--apellidos" placeholder="Apellidos">
-            </p>
-            <p>
-                <strong>Contraseña:</strong>
-                <input type="password" class="usuario__data usuario__data--contrasena" placeholder="Contraseña">
-            </p>
-            <p>
-                <strong>Email:</strong>
-                <input type="email" class="usuario__data usuario__data--email" placeholder="Email">
-            </p>
-        </div>
-        <button class="usuario__btn guardar">Guardar Cambios</button>
+    <div class="formulario">
+        <h1 class="formulario__titulo">Información del Usuario</h1>
+        <form id="form-usuario" class="formulario__form">
+            <div class="formulario__grupo">
+                <input type="hidden" class="usuario__id" value=""> <!-- ID oculto -->
+                <label for="usuario" class="formulario__label">Usuario:</label>
+                <input type="text" id="usuario" class="usuario__data usuario__data--usuario" placeholder="Usuario" readonly>
+            </div>
+            <div class="formulario__grupo">
+                <label for="nombre" class="formulario__label">Nombre:</label>
+                <input type="text" id="nombre" class="usuario__data usuario__data--nombre" placeholder="Nombre">
+            </div>
+            <div class="formulario__grupo">
+                <label for="apellidos" class="formulario__label">Apellidos:</label>
+                <input type="text" id="apellidos" class="usuario__data usuario__data--apellidos" placeholder="Apellidos">
+            </div>
+            <div class="formulario__grupo">
+                <label for="contrasena" class="formulario__label">Contraseña:</label>
+                <input type="password" id="contrasena" class="usuario__data usuario__data--contrasena" placeholder="Contraseña">
+            </div>
+            <div class="formulario__grupo">
+                <label for="email" class="formulario__label">Email:</label>
+                <input type="email" id="email" class="usuario__data usuario__data--email" placeholder="Email">
+            </div>
+            <div class="formulario__grupo">
+                <button type="button" class="formulario__boton guardar">Guardar Cambios</button>
+            </div>
+            <div class="formulario__grupo">
+                <a href="../primeravista/index.html" class="formulario__boton menu-boton">Ir al Menú</a>
+            </div>
+        </form>
     </div>
     <script type="module" src="../js/listarUsuario.js"></script>
 </body>

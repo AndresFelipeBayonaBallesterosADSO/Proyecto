@@ -56,7 +56,8 @@ body {
 /* Estilo para las acciones */
 .facturas__acciones {
     display: flex;
-    gap: 0.5rem;
+    justify-content: center; /* Centra horizontalmente los botones */
+    align-items: center; /* Centra verticalmente los botones */
 }
 
 /* Botones */
@@ -78,6 +79,7 @@ body {
 .pagination {
     display: flex;
     align-items: center;
+    justify-content: center; /* Asegura que los botones estén centrados */
     margin-top: 1rem;
 }
 
@@ -100,4 +102,35 @@ body {
 #pageNumber {
     margin: 0 1rem;
     font-weight: bold;
+}
+
+/* Estilo para los grupos de botones */
+.formulario__grupo {
+    margin: 1rem 0; /* Espacio entre grupos de botones */
+}
+
+/* Opcional: Ajustar el margen en los botones individuales */
+.formulario__boton {
+    display: inline-block; /* Asegura que el botón no tenga línea debajo */
+    padding: 0.3rem 0.6rem; /* Tamaño más pequeño */
+    background-color: #8e44ad; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Asegura que no haya borde */
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    font-size: 1rem; /* Tamaño de fuente más pequeño */
+    text-decoration: none; /* Asegura que no haya subrayado */
+    margin: 0.5rem 0; /* Agrega un margen vertical a cada botón */
+}
+
+.formulario__boton:hover {
+    background-color: #7d3c98; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo para el botón "Ir al Menú" */
+.menu-button-container {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    margin-top: 1rem; /* Espacio entre la paginación y el botón "Ir al Menú" */
 }

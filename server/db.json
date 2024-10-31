@@ -1,15 +1,10 @@
 {
   "users": [
-    {
-      "usuario": "andresito",
-      "nombre": "Andres",
-      "apellidos": "Bayona",
-      "email": "andresbayona408@gmail.com",
-      "contrasena": "12345678",
-      "id": "6653"
-    }
   ],
-  "productos": [],
-  "categorias": [],
-  "facturas": []
+  "productos": [
+  ],
+  "categorias": [
+  ],
+  "facturas": [
+  ]
 }

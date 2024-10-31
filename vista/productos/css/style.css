@@ -74,16 +74,24 @@ body {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
+    width: 100%; /* Asegura que el botón ocupe el ancho completo */
 }
 
 .formulario__boton:hover {
     background-color: #7d3c98;
 }
 
-.correcto{
+.menu-boton {
+    background-color: #8e44ad; /* Mismo color que el botón de agregar producto */
+    text-decoration: none; /* Quitar subrayado del enlace */
+    display: inline-block; /* Asegura que el enlace se comporte como un bloque */
+}
+
+/* Estilos para validación */
+.correcto {
     border: 1px solid green;
 }
 
-.error{
+.error {
     border: 1px solid red;
 }

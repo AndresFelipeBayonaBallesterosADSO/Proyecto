@@ -4,88 +4,95 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* Bloque principal: usuario */
-.usuario {
+/* Bloque principal: formulario */
+.formulario {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: auto;
+    max-width: 400px; /* Ajuste de ancho máximo */
+    width: 100%;
 }
 
 /* Título */
-.usuario h1 {
-    color: #8e44ad;
+.formulario__titulo {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
+    text-align: center;
+    color: #8e44ad; /* Color del título */
 }
 
-/* Información del usuario */
-.usuario__info {
+/* Bloque de formulario */
+.formulario__form {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    padding: 1rem;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    gap: 1rem; /* Espacio entre elementos */
 }
 
-/* Estilos para los datos del usuario */
-.usuario__data {
+/* Grupo de entradas */
+.formulario__grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Etiquetas */
+.formulario__label {
     font-weight: bold;
+    font-size: 1rem;
     color: #333;
 }
 
-/* Estilo de los párrafos */
-.usuario__info p {
-    margin: 0.5rem 0;
+/* Campos de entrada */
+.usuario__data {
+    padding: 0.75rem;
     font-size: 1rem;
-    color: #555;
-}
-
-/* Estilo para inputs en la información del usuario */
-.usuario__info input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.usuario__info input:focus {
-    border-color: #8e44ad; /* Color al hacer foco en el input */
-    outline: none; /* Quitar el contorno predeterminado */
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
 }
 
 /* Estilo para el botón de guardar cambios */
-.usuario__btn {
-    padding: 0.5rem 1rem;
+.formulario__boton {
+    padding: 0.75rem;
     background-color: #8e44ad;
     color: white;
     border: none;
     border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
-    margin-top: 1rem;
+    text-align: center;
     transition: background-color 0.3s ease;
+    width: 100%; /* Asegura que el botón ocupe el ancho completo */
 }
 
-.usuario__btn:hover {
-    background-color: #7d3c98; /* Color de fondo al pasar el ratón */
+.formulario__boton:hover {
+    background-color: #7d3c98;
 }
 
-/* Estilos para enlaces, si decides añadir */
-.usuario a {
-    color: #8e44ad;
-    text-decoration: none;
-    transition: color 0.3s;
+/* Estilo para el botón "Ir al Menú" */
+.menu-boton {
+    background-color: #8e44ad; /* Mismo color que el botón de guardar */
+    text-decoration: none; /* Quitar subrayado del enlace */
+    display: inline-block; /* Asegura que el enlace se comporte como un bloque */
 }
 
-.usuario a:hover {
-    color: #7d3c98;
+/* Estilos para validación */
+.correcto {
+    border: 1px solid green;
+}
+
+.error {
+    border: 1px solid red;
 }

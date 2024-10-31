@@ -19,6 +19,13 @@ body {
     margin: auto;
 }
 
+/* Título */
+.productos__titulo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 /* Tabla de productos */
 .productos__table {
     width: 100%;
@@ -68,15 +75,46 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: auto; /* Permite que el botón se ajuste al contenido */
 }
 
 .productos__btn:hover {
     background-color: #7d3c98;
 }
 
-.productos__btn--first,
-.productos__btn--prev,
-.productos__btn--next,
-.productos__btn--last {
-    margin: 0.5rem;
+/* Estilos de paginación */
+.pagination {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+#prevPage,
+#nextPage {
+    margin: 0 1rem; /* Espaciado horizontal entre los botones de paginación */
+}
+
+/* Estilo específico para el botón del menú */
+.menu-boton {
+    margin-top: 1rem; /* Espaciado superior para separarlo de la tabla */
+    display: inline-block; /* Asegura que el enlace se comporte como un bloque */
+    text-decoration: none; /* Quita la línea debajo del texto */
+    padding: 0.5rem 1rem; /* Igualar tamaño con otros botones */
+    background-color: #8e44ad; /* Mismo color de fondo */
+    color: white; /* Mismo color de texto */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición de fondo */
+}
+
+.menu-boton:hover {
+    background-color: #7d3c98; /* Color al pasar el ratón */
+}
+
+/* Estilos para validación */
+.correcto {
+    border: 1px solid green;
+}
+
+.error {
+    border: 1px solid red;
 }

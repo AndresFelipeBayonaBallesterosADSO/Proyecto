@@ -114,3 +114,8 @@ body {
 .error {
     border: 1px solid red;
 }
+
+/* Estilo para enlaces que se comportan como botones */
+a {
+    text-decoration: none; /* Elimina el subrayado */
+}
