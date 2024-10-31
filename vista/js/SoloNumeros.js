@@ -1,8 +1,4 @@
 // SoloNumeros.js
-const SoloNumeros = (event) => {
-    if (event.key < '0' || event.key > '9') {
-        event.preventDefault();
-    }
-};
-
-export default SoloNumeros;
+export default function SoloNumeros(value) {
+    return /^\d+$/.test(value); // Solo números
+}
