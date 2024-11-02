@@ -1,7 +1,19 @@
+/* Definición de variables globales */
+:root {
+    --color-fondo: #f4f4f4; /* Color de fondo */
+    --color-blanco: #fff; /* Color blanco */
+    --color-morado: #8e44ad; /* Color morado */
+    --color-morado-oscuro: #7d3c98; /* Color morado más oscuro */
+    --color-borde: #ddd; /* Color del borde */
+    --color-texto: white; /* Color del texto en botones */
+    --color-fondo-fila: #f9f9f9; /* Color de fondo de las filas */
+    --color-fondo-hover: #f0f0f0; /* Color de fondo al pasar el mouse */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     margin: 0;
     padding: 0;
 }
@@ -12,7 +24,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--color-blanco);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 800px;
@@ -29,8 +41,8 @@ body {
 
 .formulario__boton {
     padding: 0.75rem;
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-texto);
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -39,11 +51,11 @@ body {
     transition: background-color 0.3s ease;
     text-decoration: none; /* Elimina la línea debajo del texto */
     width: auto; /* Ajusta el ancho al contenido */
-    margin-bottom : -1rem;
+    margin-bottom: -1rem;
 }
 
 .formulario__boton:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-oscuro);
 }
 
 /* Tabla de categorías */
@@ -55,8 +67,8 @@ body {
 }
 
 .categorias__thead {
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-texto);
 }
 
 .categorias__header {
@@ -65,17 +77,17 @@ body {
 }
 
 .categorias__tbody {
-    background-color: #f9f9f9;
+    background-color: var(--color-fondo-fila);
 }
 
 /* Estilo de filas como lista */
 .categorias__row {
     transition: background-color 0.3s;
-    border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
+    border-bottom: 1px solid var(--color-borde); /* Línea divisoria entre filas */
 }
 
 .categorias__row:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-fondo-hover);
 }
 
 .categorias__data {
@@ -95,8 +107,8 @@ body {
 /* Botones */
 .categorias__btn {
     padding: 0.5rem 1rem;
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-texto);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -111,9 +123,8 @@ body {
     text-align: center; /* Centra el texto dentro del botón */
 }
 
-
 .categorias__btn:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-oscuro);
 }
 
 /* Estilo para la paginación */
@@ -126,8 +137,8 @@ body {
 #prevPage,
 #nextPage {
     padding: 0.5rem 1.3rem;
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-texto);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -136,7 +147,7 @@ body {
 
 #prevPage:hover,
 #nextPage:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-oscuro);
 }
 
 #pageNumber {

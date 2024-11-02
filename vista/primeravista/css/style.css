@@ -1,3 +1,16 @@
+/* Definición de variables globales */
+:root {
+    --color-fondo: #f4f4f4; /* Color de fondo general */
+    --color-morado: #8e44ad; /* Color morado */
+    --color-morado-oscuro: #7d3c98; /* Color morado más claro */
+    --color-blanco: #fff; /* Color blanco */
+    --color-texto: #333; /* Color del texto principal */
+    --color-borde: #ddd; /* Color del borde */
+    --color-navegacion: #7d4596; /* Color de fondo de navegación */
+    --color-hover: rgba(255, 255, 255, 0.2); /* Color hover para enlaces */
+}
+
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -6,22 +19,23 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
 }
 
 .contenedor {
     display: flex;
 }
 
+/* Navegación */
 .navegacion {
     width: 200px;
-    background-color: #7d4596; /* Cambiado a morado */
+    background-color: var(--color-navegacion);
     padding: 20px;
     height: 100vh; 
 }
 
 .navegacion__titulo {
-    color: #fff;
+    color: var(--color-blanco);
     margin-bottom: 20px;
 }
 
@@ -31,16 +45,17 @@ body {
 
 .navegacion__enlace {
     display: block;
-    color: #fff; 
+    color: var(--color-blanco); 
     text-decoration: none; 
     padding: 10px;
     transition: background-color 0.3s;
 }
 
 .navegacion__enlace:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: var(--color-hover); 
 }
 
+/* Contenido */
 .contenido {
     flex: 1; 
     padding: 20px;
@@ -54,15 +69,14 @@ body {
 
 .contenido__titulo {
     font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
+    color: var(--color-texto);
+    margin: 20px 0;
     text-align: center; 
-    margin-top: 20px;
 }
 
 /* Estilos para el registro */
 .registro {
-    background-color: #fff;
+    background-color: var(--color-blanco);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -76,7 +90,7 @@ body {
 .registro__titulo {
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    color: #8e44ad; /* Cambiado a morado */
+    color: var(--color-morado);
 }
 
 .registro__descripcion {
@@ -102,7 +116,7 @@ body {
 
 .registro__entrada {
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde);
     border-radius: 4px;
     font-size: 1rem;
     width: 100%;
@@ -116,8 +130,8 @@ body {
 
 .registro__boton {
     padding: 0.75rem 2rem;
-    background-color: #8e44ad; /* Cambiado a morado */
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
     text-decoration: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -127,5 +141,5 @@ body {
 }
 
 .registro__boton:hover {
-    background-color: #7d3c98; /* Morado más claro */
+    background-color: var(--color-morado-oscuro);
 }

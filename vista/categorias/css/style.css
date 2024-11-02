@@ -1,7 +1,17 @@
+/* Definición de variables globales */
+:root {
+    --color-fondo: #f4f4f4; /* Color de fondo general */
+    --color-blanco: #fff; /* Color blanco */
+    --color-morado: #8e44ad; /* Color morado */
+    --color-morado-oscuro: #7d3c98; /* Color morado más oscuro */
+    --color-texto: #333; /* Color del texto */
+    --ancho-formulario: 320px; /* Ancho del formulario */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,11 +21,11 @@ body {
 
 /* Bloque principal: formulario */
 .formulario {
-    background-color: #fff;
+    background-color: var(--color-blanco);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 320px;
+    width: var(--ancho-formulario);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +36,7 @@ body {
 .formulario__titulo {
     font-size: 24px;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--color-texto);
 }
 
 /* Bloque del formulario */
@@ -47,7 +57,7 @@ body {
 /* Etiqueta */
 .formulario__label {
     font-weight: bold;
-    color: #333;
+    color: var(--color-texto);
 }
 
 /* Input */
@@ -61,8 +71,8 @@ body {
 /* Botón */
 .formulario__boton {
     padding: 0.75rem 1.5rem;
-    background-color: #8e44ad; /* Color morado */
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
     border-radius: 4px;
     font-size: 1rem;
     text-align: center;
@@ -73,5 +83,5 @@ body {
 
 /* Hover del botón */
 .formulario__boton:hover {
-    background-color: #7d3c98; /* Color morado más oscuro */
+    background-color: var(--color-morado-oscuro);
 }

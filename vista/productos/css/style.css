@@ -1,7 +1,19 @@
+/* Variables globales */
+:root {
+    --color-fondo: #f4f4f4;
+    --color-blanco: #fff;
+    --color-morado: #8e44ad;
+    --color-morado-claro: #7d3c98;
+    --color-texto: #333;
+    --color-borde: #ddd;
+    --color-error: red;
+    --color-correcto: green;
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,7 +24,7 @@ body {
 
 /* Bloque principal: formulario */
 .formulario {
-    background-color: #fff;
+    background-color: var(--color-blanco);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -49,7 +61,7 @@ body {
 .formulario__label {
     font-weight: bold;
     font-size: 1rem;
-    color: #333;
+    color: var(--color-texto);
 }
 
 /* Campos de entrada y select */
@@ -57,18 +69,29 @@ body {
 .formulario__select {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde);
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;  /* Asegura que el padding se incluya en el tamaño total */
+}
+
+/* Estilo para el estado correcto y de error */
+.formulario__input.correcto,
+.formulario__select.correcto {
+    border-color: var(--color-correcto); /* Cambia el color del borde a verde si es correcto */
+}
+
+.formulario__input.error,
+.formulario__select.error {
+    border-color: var(--color-error); /* Cambia el color del borde a rojo si hay error */
 }
 
 /* Botón */
 .formulario__boton {
     padding: 0.75rem;
     padding-left: 0px;
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -78,20 +101,19 @@ body {
 }
 
 .formulario__boton:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-claro);
 }
 
 .menu-boton {
-    background-color: #8e44ad; /* Mismo color que el botón de agregar producto */
+    background-color: var(--color-morado); /* Mismo color que el botón de agregar producto */
     text-decoration: none; /* Quitar subrayado del enlace */
     display: inline-block; /* Asegura que el enlace se comporte como un bloque */
+    padding: 0.75rem; /* Igualar el tamaño con otros botones */
+    border-radius: 4px; /* Bordes redondeados */
+    color: var(--color-blanco); /* Color de texto blanco */
+    transition: background-color 0.3s ease; /* Suaviza la transición de fondo */
 }
 
-/* Estilos para validación */
-.correcto {
-    border: 1px solid green;
-}
-
-.error {
-    border: 1px solid red;
+.menu-boton:hover {
+    background-color: var(--color-morado-claro); /* Color al pasar el ratón */
 }

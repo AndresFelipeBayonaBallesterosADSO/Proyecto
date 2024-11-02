@@ -1,110 +1,141 @@
-import is_valid from "./isValid.js"; // Importa función para validar campos requeridos
-import ValidarCorreo from "./ValidarCorreo.js"; // Importa función para validar correos electrónicos
-import SoloNumeros from "./SoloNumeros.js"; // Importa función para restringir entradas a solo números
-import SoloLetras from "./SoloLetras.js"; // Importa función para restringir entradas a solo letras
-import remover from "./remover.js"; // Importa función para limpiar mensajes de error
-import { URL } from "./config.js"; // Importa la URL desde el archivo de configuración
+import { URL } from "./config.js"; // Importa la URL desde el archivo de configuración, 'import' permite incluir módulos de otros archivos.
 
-const $formulario = document.querySelector('form'); // Selecciona el formulario en el DOM
-const usuario = document.querySelector("#usuario"); // Selecciona el campo de usuario en el formulario
-const nombre = document.querySelector("#nombre"); // Selecciona el campo de nombre en el formulario
-const apellido = document.querySelector("#apellido"); // Selecciona el campo de apellido en el formulario
-const contrasena = document.querySelector("#contrasena"); // Selecciona el campo de contraseña en el formulario
-const confirmarContrasena = document.querySelector("#confirmar-contrasena"); // Selecciona el campo para confirmar contraseña
-const email = document.querySelector("#email"); // Selecciona el campo de correo electrónico en el formulario
-const button = document.querySelector("button"); // Selecciona el botón de envío del formulario
+// Selección de elementos del formulario
+const $formulario = document.querySelector("form"); // Selecciona el primer formulario en el documento.
+const usuario = document.querySelector("#usuario"); // Selecciona el campo de entrada con id 'usuario'.
+const nombre = document.querySelector("#nombre"); // Selecciona el campo de entrada con id 'nombre'.
+const apellido = document.querySelector("#apellido"); // Selecciona el campo de entrada con id 'apellido'.
+const contrasena = document.querySelector("#contrasena"); // Selecciona el campo de entrada con id 'contrasena'.
+const confirmarContrasena = document.querySelector("#confirmar-contrasena"); // Selecciona el campo para confirmar la contraseña.
+const email = document.querySelector("#email"); // Selecciona el campo de entrada con id 'email'.
 
-// Función para guardar el usuario en la API
-const guardar = (data) => {
-    fetch(`${URL}/users`, {
-        method: 'POST', // Método HTTP utilizado para enviar datos al servidor
-        body: JSON.stringify(data), // Convierte el objeto data a formato JSON para enviar
-        headers: {
-            'content-type': 'application/json; charset=UTF-8', // Especifica el tipo de contenido como JSON
-        },
-    })
-    .then((response) => response.json()) // Convierte la respuesta a formato JSON
-    .then(() => {
-        limpiarForm(); // Limpia el formulario después de agregar el usuario
-        alert("Registro exitoso"); // Muestra una alerta indicando que el registro fue exitoso
-        window.location.href = "../index.html"; // Redirige al usuario a la página de inicio de sesión
-    })
-    .catch((error) => {
-        console.error("Error:", error); // Muestra el error en la consola
-        alert("No se pudo completar el registro."); // Muestra una alerta indicando que hubo un problema en el registro
+// Función para validar campos requeridos
+const is_valid = () => {
+    let valid = true; // Inicializa la variable 'valid' como verdadera.
+    // Verifica si los campos requeridos tienen valor
+    [$formulario.usuario, $formulario.nombre, $formulario.apellido, $formulario.contrasena, $formulario.email].forEach((input) => {
+        if (!input.value.trim()) { // Si el campo está vacío o solo tiene espacios
+            input.classList.add("error"); // Agrega la clase 'error' para marcar el campo como inválido.
+            valid = false; // Cambia 'valid' a falso.
+        } else {
+            input.classList.remove("error"); // Si tiene valor, quita la clase 'error'.
+        }
     });
+    return valid; // Retorna el estado de validación.
+};
+
+// Validación de correo electrónico
+const ValidarCorreo = (email) => {
+    // Expresión regular para validar el formato del correo electrónico.
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email); // Retorna verdadero si el correo es válido.
+};
+
+// Restricción a solo números
+const SoloNumeros = (event) => {
+    const key = event.key; // Obtiene la tecla que fue presionada.
+    if (!/^\d$/.test(key)) { // Verifica si la tecla no es un dígito.
+        event.preventDefault(); // Previene la acción de ingreso si no es un número.
+    }
+};
+
+// Restricción a solo letras
+const SoloLetras = (event) => {
+    const key = event.key; // Obtiene la tecla que fue presionada.
+    if (!/^[a-zA-ZñÑ\s]+$/.test(key)) { // Verifica si la tecla no es una letra o espacio.
+        event.preventDefault(); // Previene la acción de ingreso si no es una letra.
+    }
 };
 
 // Función para limpiar el formulario
 const limpiarForm = () => {
-    usuario.value = ""; // Limpia el campo de usuario
-    nombre.value = ""; // Limpia el campo de nombre
-    apellido.value = ""; // Limpia el campo de apellido
-    contrasena.value = ""; // Limpia el campo de contraseña
-    confirmarContrasena.value = ""; // Limpia el campo de confirmación de contraseña
-    email.value = ""; // Limpia el campo de correo electrónico
-    // Elimina las clases de estado correcto o error de cada campo para resetear la interfaz
-    ["correcto", "error"].forEach(cls => {
-        usuario.classList.remove(cls);
-        nombre.classList.remove(cls);
-        apellido.classList.remove(cls);
-        contrasena.classList.remove(cls);
-        confirmarContrasena.classList.remove(cls);
-        email.classList.remove(cls);
-    });
+    // Limpia todos los campos del formulario.
+    usuario.value = "";
+    nombre.value = "";
+    apellido.value = "";
+    contrasena.value = "";
+    confirmarContrasena.value = "";
+    email.value = "";
+    // Remueve las clases de error y correcto de los campos.
+    [usuario, nombre, apellido, contrasena, confirmarContrasena, email].forEach((input) => input.classList.remove("error", "correcto"));
 };
 
 // Función para manejar el envío del formulario
 const save = (event) => {
-    event.preventDefault(); // Previene el comportamiento por defecto del formulario (no recargar la página)
+    event.preventDefault(); // Previene el comportamiento por defecto del formulario.
 
-    // Verifica si las contraseñas coinciden
-    if (contrasena.value !== confirmarContrasena.value) {
-        alert("Las contraseñas no coinciden."); // Alerta al usuario si las contraseñas no coinciden
-        return; // Sale de la función si las contraseñas no coinciden
+    if (!is_valid()) { // Verifica si todos los campos son válidos.
+        alert("Todos los campos son obligatorios."); // Muestra una alerta si hay campos vacíos.
+        return; // Termina la función si hay errores.
     }
 
-    let response = is_valid(event, "form[required]"); // Llama a la función para validar campos requeridos
-
-    if (response) {
-        // Si la validación es exitosa, se prepara el objeto de datos
-        const data = {
-            usuario: usuario.value, // Almacena el valor del campo de usuario
-            nombre: nombre.value, // Almacena el valor del campo de nombre
-            apellidos: apellido.value, // Almacena el valor del campo de apellido
-            contrasena: contrasena.value, // Almacena el valor del campo de contraseña
-            email: email.value // Almacena el valor del campo de correo electrónico
-        };
-        guardar(data); // Llama a la función para guardar el usuario en la API
+    if (contrasena.value !== confirmarContrasena.value) { // Compara las contraseñas.
+        alert("Las contraseñas no coinciden."); // Muestra alerta si no coinciden.
+        return; // Termina la función.
     }
+
+    if (!ValidarCorreo(email.value)) { // Valida el formato del correo electrónico.
+        alert("Correo electrónico no válido."); // Muestra alerta si el correo es inválido.
+        return; // Termina la función.
+    }
+
+    const data = { // Crea un objeto con los datos del formulario.
+        usuario: usuario.value,
+        nombre: nombre.value,
+        apellidos: apellido.value,
+        contrasena: contrasena.value,
+        email: email.value,
+    };
+
+    guardar(data); // Llama a la función para guardar los datos.
 };
 
-// Agrega el evento al formulario para manejar el envío
-$formulario.addEventListener("submit", save); // Escucha el evento de envío del formulario y llama a la función save
+// Función para guardar los datos en la API
+const guardar = (data) => {
+    // Hace una solicitud POST para guardar los datos en la API.
+    fetch(`${URL}/users`, {
+        method: "POST", // Especifica que es un método POST.
+        body: JSON.stringify(data), // Convierte el objeto data a JSON.
+        headers: {
+            "content-type": "application/json; charset=UTF-8", // Establece el tipo de contenido.
+        },
+    })
+        .then((response) => response.json()) // Convierte la respuesta a JSON.
+        .then(() => {
+            limpiarForm(); // Limpia el formulario.
+            alert("Registro exitoso"); // Muestra alerta de éxito.
+            window.location.href = "../index.html"; // Redirige a otra página.
+        })
+        .catch((error) => { // Maneja errores en la solicitud.
+            console.error("Error:", error); // Muestra el error en la consola.
+            alert("No se pudo completar el registro."); // Muestra alerta de error.
+        });
+};
 
-// Carga los eventos y validaciones al cargar el documento
-document.addEventListener("DOMContentLoaded", () => {
-    // Añadir validaciones de teclas para limpiar mensajes de error al escribir
-    usuario.addEventListener("keyup", (event) => remover(event, usuario)); // Limpia el mensaje de error en usuario
-    nombre.addEventListener("keyup", (event) => remover(event, nombre)); // Limpia el mensaje de error en nombre
-    apellido.addEventListener("keyup", (event) => remover(event, apellido)); // Limpia el mensaje de error en apellido
-    email.addEventListener("keyup", (event) => remover(event, email)); // Limpia el mensaje de error en email
+// Evento de envío del formulario
+$formulario.addEventListener("submit", save); // Agrega un evento para manejar el envío del formulario.
 
-    // Restricciones de entrada de teclado para el campo de usuario
-    usuario.addEventListener("keypress", (event) => {
-        const key = event.key; // Captura la tecla presionada
-        const regex = /^[a-zA-Z0-9]+$/; // Define una expresión regular que permite solo letras y números
-        if (!regex.test(key)) {
-            event.preventDefault(); // Previene la entrada si la tecla no coincide con el regex
+// Eventos de validación y restricciones en los campos
+document.addEventListener("DOMContentLoaded", () => { // Se ejecuta cuando el contenido del documento se ha cargado.
+    usuario.addEventListener("keyup", () => usuario.classList.remove("error")); // Elimina clase de error al escribir en el campo.
+    nombre.addEventListener("keyup", () => nombre.classList.remove("error")); // Elimina clase de error al escribir en el campo.
+    apellido.addEventListener("keyup", () => apellido.classList.remove("error")); // Elimina clase de error al escribir en el campo.
+    email.addEventListener("keyup", () => email.classList.remove("error")); // Elimina clase de error al escribir en el campo.
+    contrasena.addEventListener("keyup", () => contrasena.classList.remove("error")); // Elimina clase de error al escribir en el campo.
+
+    // Validación específica de cada campo
+    contrasena.addEventListener("keypress", SoloNumeros); // Restringe el campo de contraseña a solo números.
+    confirmarContrasena.addEventListener("keypress", SoloNumeros); // Restringe el campo de confirmar contraseña a solo números.
+    nombre.addEventListener("keypress", SoloLetras); // Restringe el campo de nombre a solo letras.
+    apellido.addEventListener("keypress", SoloLetras); // Restringe el campo de apellido a solo letras.
+
+    // Validación de correo electrónico
+    email.addEventListener("blur", () => { // Se ejecuta cuando el campo de email pierde el foco.
+        if (!ValidarCorreo(email.value)) { // Valida el correo electrónico.
+            email.classList.add("error"); // Agrega clase de error si el correo es inválido.
+            alert("Correo electrónico no válido."); // Muestra alerta de correo inválido.
+        } else {
+            email.classList.remove("error"); // Elimina clase de error si es válido.
         }
     });
-
-    // Validaciones para que solo permitan números en contraseñas
-    contrasena.addEventListener("keypress", (event) => SoloNumeros(event, contrasena)); // Solo permite números en contraseña
-    confirmarContrasena.addEventListener("keypress", (event) => SoloNumeros(event, confirmarContrasena)); // Solo permite números en confirmar contraseña
-
-    // Restringir la entrada a solo letras en los campos de nombre y apellido
-    nombre.addEventListener("keypress", (event) => SoloLetras(event, nombre)); // Solo permite letras en nombre
-    apellido.addEventListener("keypress", (event) => SoloLetras(event, apellido)); // Solo permite letras en apellido
-    email.addEventListener("blur", (event) => ValidarCorreo(event, email)); // Valida el correo electrónico cuando el campo pierde el foco
 });

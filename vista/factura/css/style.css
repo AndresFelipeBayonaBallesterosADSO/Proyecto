@@ -1,7 +1,19 @@
+/* Definición de variables globales */
+:root {
+    --color-fondo: #f4f4f4; /* Color de fondo */
+    --color-blanco: #fff; /* Color blanco */
+    --color-morado: #8e44ad; /* Color morado */
+    --color-morado-oscuro: #7d3c98; /* Color morado más oscuro */
+    --color-borde: #ddd; /* Color del borde */
+    --color-texto: #333; /* Color del texto */
+    --color-correcto: green; /* Color para validación correcta */
+    --color-error: red; /* Color para validación de error */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,7 +24,7 @@ body {
 
 /* Bloque principal: formulario */
 .formulario {
-    background-color: #fff;
+    background-color: var(--color-blanco);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -48,7 +60,7 @@ body {
 .formulario__label {
     font-weight: bold;
     font-size: 1rem;
-    color: #333;
+    color: var(--color-texto);
 }
 
 /* Campos de entrada y select */
@@ -56,7 +68,7 @@ body {
 .formulario__select {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde);
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
@@ -65,8 +77,8 @@ body {
 /* Botón */
 .formulario__boton {
     padding: 0.75rem;
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -77,7 +89,7 @@ body {
 }
 
 .formulario__boton:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-oscuro);
 }
 
 /* Estilo para la lista de productos */
@@ -90,7 +102,7 @@ body {
 
 #listaProductos li {
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde);
     border-radius: 4px;
     margin-bottom: 0.5rem;
     display: flex;
@@ -106,11 +118,11 @@ body {
 
 /* Estilos de validación */
 .correcto {
-    border: 1px solid green;
+    border: 1px solid var(--color-correcto);
 }
 
 .error {
-    border: 1px solid red;
+    border: 1px solid var(--color-error);
 }
 
 /* Estilo para enlaces que se comportan como botones */

@@ -1,7 +1,17 @@
+/* Definición de variables globales */
+:root {
+    --color-fondo: #f4f4f4; /* Color de fondo general */
+    --color-blanco: #fff; /* Color blanco */
+    --color-morado: #8e44ad; /* Color morado */
+    --color-morado-claro: #9b59b6; /* Color morado más claro */
+    --color-morado-oscuro: #7d3c98; /* Color morado más oscuro */
+    --color-texto: #888; /* Color del texto */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +21,7 @@ body {
 
 /* Bloque principal: login */
 .login {
-    background-color: #fff;
+    background-color: var(--color-blanco);
     padding: 2rem; /* Padding interno uniforme */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -74,8 +84,8 @@ body {
 .login__btn {
     width: calc(100% - 6px); /* 3px de padding a cada lado */
     padding: 0.75rem; /* Padding uniforme */
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
     text-decoration: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -88,17 +98,17 @@ body {
 
 /* Modificador: botón de registro con tono más claro de morado */
 .login__btn--register {
-    background-color: #9b59b6; 
+    background-color: var(--color-morado-claro); 
 }
 
 /* Hover para el botón */
 .login__btn:hover {
-    background-color: #7d3c98; 
+    background-color: var(--color-morado-oscuro); 
 }
 
 /* Hover para el botón de registro */
 .login__btn--register:hover {
-    background-color: #8e44ad;
+    background-color: var(--color-morado);
 }
 
 /* Elemento: enlace de olvidó contraseña */
@@ -107,7 +117,7 @@ body {
 }
 
 .login__forgot-link {
-    color: #888;
+    color: var(--color-texto);
     text-decoration: none;
     margin-top: 0.5rem; /* Espaciado uniforme en el enlace */
 }

@@ -1,7 +1,17 @@
+/* Variables globales */
+:root {
+    --color-fondo: #f4f4f4;
+    --color-blanco: #fff;
+    --color-morado: #8e44ad;
+    --color-morado-claro: #7d3c98;
+    --color-borde: #ddd;
+    --color-texto: #333;
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +21,7 @@ body {
 
 /* Bloque principal: registro */
 .registro {
-    background-color: #fff;
+    background-color: var(--color-blanco);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -56,7 +66,7 @@ body {
 /* Elemento: entrada (input) */
 .registro__entrada {
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde);
     border-radius: 4px;
     font-size: 1rem;
     width: 100%;
@@ -72,7 +82,7 @@ body {
 /* Elemento: botón con color morado */
 .registro__boton {
     padding: 0.75rem 2rem;
-    background-color: #8e44ad; 
+    background-color: var(--color-morado);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -84,12 +94,12 @@ body {
 
 /* Hover para el botón */
 .registro__boton:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-claro);
 }
 
 /* Estilo para el enlace de inicio de sesión */
 .registro__link a {
-    color: #8e44ad; /* Color del texto del enlace */
+    color: var(--color-morado); /* Color del texto del enlace */
     text-decoration: none; /* Quitar subrayado */
     font-weight: bold; /* Resaltar el texto */
 }

@@ -1,7 +1,21 @@
+/* Definición de variables globales */
+:root {
+    --color-fondo: #f4f4f4; /* Color de fondo */
+    --color-blanco: #fff; /* Color blanco */
+    --color-morado: #8e44ad; /* Color morado */
+    --color-morado-oscuro: #7d3c98; /* Color morado más oscuro */
+    --color-borde: #ddd; /* Color del borde */
+    --color-texto: white; /* Color del texto en botones */
+    --color-fondo-fila: #f9f9f9; /* Color de fondo de las filas */
+    --color-fondo-hover: #f0f0f0; /* Color de fondo al pasar el mouse */
+    --color-correcto: green; /* Color para la validación correcta */
+    --color-error: red; /* Color para la validación de error */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
     margin: 0;
     padding: 0;
 }
@@ -12,7 +26,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    background-color: #fff;
+    background-color: var(--color-blanco);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 800px;
@@ -35,8 +49,8 @@ body {
 }
 
 .productos__thead {
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-texto);
 }
 
 .productos__header {
@@ -45,7 +59,7 @@ body {
 }
 
 .productos__tbody {
-    background-color: #f9f9f9;
+    background-color: var(--color-fondo-fila);
 }
 
 .productos__row {
@@ -53,12 +67,12 @@ body {
 }
 
 .productos__row:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-fondo-hover);
 }
 
 .productos__data {
     padding: 1rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--color-borde);
     text-align: center; /* Centrar el texto de los datos */
 }
 
@@ -73,8 +87,8 @@ body {
 /* Botones */
 .productos__btn {
     padding: 0.5rem 1.4rem;
-    background-color: #8e44ad;
-    color: white;
+    background-color: var(--color-morado);
+    color: var(--color-texto);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -83,7 +97,7 @@ body {
 }
 
 .productos__btn:hover {
-    background-color: #7d3c98;
+    background-color: var(--color-morado-oscuro);
 }
 
 /* Estilos de paginación */
@@ -104,23 +118,23 @@ body {
     display: inline-block; /* Asegura que el enlace se comporte como un bloque */
     text-decoration: none; /* Quita la línea debajo del texto */
     padding: 0.5rem 1rem; /* Igualar tamaño con otros botones */
-    background-color: #8e44ad; /* Mismo color de fondo */
-    color: white; /* Mismo color de texto */
+    background-color: var(--color-morado); /* Mismo color de fondo */
+    color: var(--color-texto); /* Mismo color de texto */
     border-radius: 4px; /* Bordes redondeados */
     transition: background-color 0.3s ease; /* Transición de fondo */
 }
 
 .menu-boton:hover {
-    background-color: #7d3c98; /* Color al pasar el ratón */
+    background-color: var(--color-morado-oscuro); /* Color al pasar el ratón */
 }
 
 /* Estilos para validación */
 .correcto {
-    border: 1px solid green;
+    border: 1px solid var(--color-correcto);
 }
 
 .error {
-    border: 1px solid red;
+    border: 1px solid var(--color-error);
 }
 
 /* Clase para unificar el tamaño de los botones */
@@ -129,4 +143,3 @@ body {
     height: 20px;
     text-align: center; /* Centra el texto dentro del botón */
 }
-
