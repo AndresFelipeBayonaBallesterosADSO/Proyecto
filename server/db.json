@@ -9,7 +9,31 @@
       "id": "1183"
     }
   ],
-  "productos": [],
-  "categorias": [],
-  "facturas": []
+  "productos": [
+    {
+      "id": "04e9",
+      "nombre": "Agucate",
+      "precio": 3000,
+      "cantidad": 5,
+      "categoria": "243f"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "243f",
+      "nombre_categoria": "Verduras"
+    }
+  ],
+  "facturas": [
+    {
+      "id": "3b15",
+      "productos": [
+        {
+          "id": "04e9",
+          "cantidad": 45
+        }
+      ],
+      "total": 135000
+    }
+  ]
 }

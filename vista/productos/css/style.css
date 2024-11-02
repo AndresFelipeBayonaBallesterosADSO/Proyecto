@@ -66,6 +66,7 @@ body {
 /* Botón */
 .formulario__boton {
     padding: 0.75rem;
+    padding-left: 0px;
     background-color: #8e44ad;
     color: white;
     border: none;
@@ -74,7 +75,6 @@ body {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
-    width: 100%; /* Asegura que el botón ocupe el ancho completo */
 }
 
 .formulario__boton:hover {

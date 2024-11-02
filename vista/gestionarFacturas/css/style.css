@@ -24,6 +24,7 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .facturas__thead {
@@ -33,7 +34,7 @@ body {
 
 .facturas__header {
     padding: 1rem;
-    text-align: left;
+    text-align: center;
 }
 
 .facturas__tbody {
@@ -58,6 +59,7 @@ body {
     display: flex;
     justify-content: center; /* Centra horizontalmente los botones */
     align-items: center; /* Centra verticalmente los botones */
+    margin-top: 0.5rem;
 }
 
 /* Botones */
@@ -70,6 +72,14 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+/* Clase para unificar el tamaño de los botones */
+.boton-uniforme {
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    height: 20px;
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
 
 .facturas__btn:hover {
     background-color: #7d3c98; /* Color igual al CSS anterior */
@@ -85,7 +95,7 @@ body {
 
 #prevPage,
 #nextPage {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.3rem;
     background-color: #8e44ad; /* Color igual al CSS anterior */
     color: white;
     border: none;
@@ -112,7 +122,7 @@ body {
 /* Opcional: Ajustar el margen en los botones individuales */
 .formulario__boton {
     display: inline-block; /* Asegura que el botón no tenga línea debajo */
-    padding: 0.3rem 0.6rem; /* Tamaño más pequeño */
+    padding: 0.5rem 0.6rem; /* Tamaño más pequeño */
     background-color: #8e44ad; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* Asegura que no haya borde */
@@ -122,7 +132,8 @@ body {
     transition: background-color 0.3s ease;
     font-size: 1rem; /* Tamaño de fuente más pequeño */
     text-decoration: none; /* Asegura que no haya subrayado */
-    margin: 0.5rem 0; /* Agrega un margen vertical a cada botón */
+    margin: 0.5rem; /* Agrega un margen vertical a cada botón */
+    margin-bottom: -1.5rem;
 }
 
 .formulario__boton:hover {
