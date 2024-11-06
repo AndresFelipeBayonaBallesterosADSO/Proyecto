@@ -5,7 +5,7 @@ import { URL } from "./config.js";
 // Importa la constante 'URL' del archivo 'config.js', que contiene la URL base para hacer solicitudes a la API.
 
 document.addEventListener('DOMContentLoaded', () => {
-// Agrega un evento al documento que espera a que todo el contenido del DOM (Document Object Model) esté completamente cargado antes de ejecutar el código dentro de la función.
+// Agrega un evento al documento que espera a que todo el contenido del DOM esté completamente cargado antes de ejecutar el código dentro de la función.
 
     const urlParams = new URLSearchParams(window.location.search); 
     // Crea un objeto 'URLSearchParams' que permite manejar los parámetros de la URL de la página actual.
